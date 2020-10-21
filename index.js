@@ -18,10 +18,11 @@ module.exports = function toMilliseconds(readableTimes) {
 }
 
 function toMillisecondsSingle(readable) {
+  readable = readable.toLowerCase();
   let factor = readable.slice(-1);
-  if (factor.toLowerCase() === 'o') {
+  if (factor === 'o') {
     const monthFactor = readable.slice(-2);
-    factor = monthFactor.toLowerCase() === 'mo' ? monthFactor : factor;
+    factor = monthFactor === 'mo' ? monthFactor : factor;
   }
 
   const value = +readable.slice(0, -factor.length);
@@ -30,27 +31,18 @@ function toMillisecondsSingle(readable) {
 
   switch (factor) {
     case 's':
-    case 'S':
       return value * SECOND;
     case 'm':
-    case 'M':
       return value * MINUTE;
     case 'h':
-    case 'H':
       return value * HOUR;
     case 'd':
-    case 'D':
       return value * DAY;
     case 'w':
-    case 'W':
       return value * WEEK;
     case 'mo':
-    case 'Mo':
-    case 'mO':
-    case 'MO':
       return value * MONTH;
     case 'y':
-    case 'Y':
       return value * YEAR;
     default:
       return null;
