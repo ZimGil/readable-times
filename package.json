@@ -4,7 +4,7 @@
   "description": "Convert readable time strings to milliseconds and vice versa",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/ZimGil/readable-times/issues"
   },
-  "homepage": "https://github.com/ZimGil/readable-times#readme"
+  "homepage": "https://github.com/ZimGil/readable-times#readme",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^8.2.0"
+  }
 }
