@@ -3,7 +3,7 @@ const times = require('./_times');
 module.exports = function toMilliseconds(readableTimes) {
   if (!isNaN(readableTimes)) { return +readableTimes; }
   if (typeof readableTimes !== 'string') { return null; }
-  const readables = readableTimes.split(' ');
+  const readables = readableTimes.trim().split(/\s+/);
   return readables.reduce((milliseconds, readable) => {
     if (milliseconds === null) { return null; }
     const value = toMillisecondsSingle(readable);
