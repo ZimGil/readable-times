@@ -1,0 +1,19 @@
+{
+  "name": "readable-times",
+  "version": "0.0.0",
+  "description": "Convert readable time strings to milliseconds and vice versa",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZimGil/readable-times.git"
+  },
+  "author": "ZimGil",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ZimGil/readable-times/issues"
+  },
+  "homepage": "https://github.com/ZimGil/readable-times#readme"
+}
