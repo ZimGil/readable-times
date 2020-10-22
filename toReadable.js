@@ -70,4 +70,4 @@ module.exports = function toReadable(ms) {
 
   return results.join(' ');
 
-}
+};
