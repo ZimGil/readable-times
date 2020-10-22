@@ -1,5 +1,20 @@
 const times = require('./_times');
 
+/**
+ * Convert milliseconds to readable times string.
+ *
+ * @since 0.1.0
+ * @param { number } ms - Milliseconds to convert to string.
+ * @returns { string } Return a string representing the millisecinds as readable times.
+ *
+ * @example
+ *
+ * toReadable(1);
+ * // => '1ms'
+ *
+ * toReadable(38898367008);
+ * // => '1y 2mo 3w 4d 5h 6m 7s 8ms'
+ */
 module.exports = function toReadable(ms) {
   if (isNaN(ms)) { throw new Error(`Unexpected value: ${ms} is not convertable to number`); }
   ms = +ms;

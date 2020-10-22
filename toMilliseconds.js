@@ -1,5 +1,23 @@
 const times = require('./_times');
 
+/**
+ * Convert readable times string to milliseconds.
+ *
+ * @since 0.1.0
+ * @param { string } readableTimes - Readable time string.
+ * @returns { number } Returns number of milliseconds represented in the string.
+ *
+ * @example
+ *
+ * toMilliseconds('1d');
+ * // => 86400000
+ *
+ * toMilliseconds('1y 2mo 3w 4d 5h 6m 7s 8ms');
+ * // => 38898367008
+ *
+ * toMilliseconds(123);
+ * // => 123
+ */
 module.exports = function toMilliseconds(readableTimes) {
   if (!isNaN(readableTimes)) { return +readableTimes; }
   if (typeof readableTimes !== 'string') { throw new Error(`Unexpected value type: [${typeof readableTimes}] is not supported, expected [string]`); }
