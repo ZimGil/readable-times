@@ -4,7 +4,11 @@ module.exports = function toMilliseconds(readableTimes) {
   if (!isNaN(readableTimes)) { return +readableTimes; }
   if (typeof readableTimes !== 'string') { throw new Error(`Unexpected value type: ${readableTimes} is of type ${typeof readableTimes}, expected 'string'`); }
   const readables = readableTimes.trim().split(/\s+/);
-  return readables.reduce((milliseconds, readable) => milliseconds + toMillisecondsSingle(readable), 0);
+  try {
+    return readables.reduce((milliseconds, readable) => milliseconds + toMillisecondsSingle(readable), 0);
+  } catch (e) {
+    throw new Error(e);
+  }
 }
 
 function toMillisecondsSingle(readable) {
