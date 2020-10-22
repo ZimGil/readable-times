@@ -10,9 +10,9 @@ module.exports = function toMilliseconds(readableTimes) {
 function toMillisecondsSingle(readable) {
   readable = readable.toLowerCase();
   let factor = readable.slice(-1);
-  if (factor === 'o') {
+  if (['s', 'o'].includes(factor)) {
     const monthFactor = readable.slice(-2);
-    factor = monthFactor === 'mo' ? monthFactor : factor;
+    factor = ['ms', 'mo'].includes(monthFactor) ? monthFactor : factor;
   }
 
   const value = +readable.slice(0, -factor.length);
@@ -20,6 +20,8 @@ function toMillisecondsSingle(readable) {
   if (isNaN(value)) { throw new Error(`Unexpected value: ${readable} is not a supported value`); }
 
   switch (factor) {
+    case 'ms':
+      return value;
     case 's':
       return value * times.SECOND;
     case 'm':
