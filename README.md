@@ -7,9 +7,7 @@ Convert readable time strings to milliseconds and vice versa.
 ## usage
 ### toMilliseconds()
 ```javascript
-const toMilliseconds = require('readable-times/toMilliseconds');
-// You could also:
-// const { toMilliseconds } = require('readable-times');
+const { toMilliseconds } = require('readable-times');
 
 toMilliseconds('1d');
 // => 86400000
@@ -23,9 +21,7 @@ toMilliseconds(123);
 
 ### toReadable()
 ```javascript
-const toReadable = require('readable-times/toReadable');
-// You could also:
-// const { toReadable } = require('readable-times');
+const { toReadable } = require('readable-times');
 
 toReadable(1);
 // => '1ms'
