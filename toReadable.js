@@ -1,7 +1,7 @@
 const times = require('./_times');
 
 module.exports = function toReadable(ms) {
-  if (isNaN(ms)) { return null; }
+  if (isNaN(ms)) { throw new Error(`Unexpected value: ${ms} is not convertable to number`); }
   ms = +ms;
 
   const results = [];

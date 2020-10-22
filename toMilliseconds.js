@@ -2,13 +2,9 @@ const times = require('./_times');
 
 module.exports = function toMilliseconds(readableTimes) {
   if (!isNaN(readableTimes)) { return +readableTimes; }
-  if (typeof readableTimes !== 'string') { return null; }
+  if (typeof readableTimes !== 'string') { throw new Error(`Unexpected value type: ${readableTimes} is of type ${typeof readableTimes}, expected 'string'`); }
   const readables = readableTimes.trim().split(/\s+/);
-  return readables.reduce((milliseconds, readable) => {
-    if (milliseconds === null) { return null; }
-    const value = toMillisecondsSingle(readable);
-    return value !== null ? milliseconds + value : null;
-  }, 0);
+  return readables.reduce((milliseconds, readable) => milliseconds + toMillisecondsSingle(readable), 0);
 }
 
 function toMillisecondsSingle(readable) {
@@ -21,7 +17,7 @@ function toMillisecondsSingle(readable) {
 
   const value = +readable.slice(0, -factor.length);
 
-  if (isNaN(value)) { return null; }
+  if (isNaN(value)) { throw new Error(`Unexpected value: ${readable} is not a supported value`); }
 
   switch (factor) {
     case 's':
@@ -39,6 +35,6 @@ function toMillisecondsSingle(readable) {
     case 'y':
       return value * times.YEAR;
     default:
-      return null;
+      throw new Error(`Unexpected value: ${factor} is not a supported time identifier`);
   }
 }
