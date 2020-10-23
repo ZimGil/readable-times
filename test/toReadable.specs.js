@@ -1,5 +1,5 @@
 const expect = require('chai').expect;
-const toReadable = require('../toReadable');
+const toReadable = require('../lib/toReadable');
 
 describe('toReadable()', () => {
   it('Should return empty string for input (0)', () => {

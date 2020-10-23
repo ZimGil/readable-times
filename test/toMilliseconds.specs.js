@@ -1,5 +1,5 @@
 const expect = require('chai').expect;
-const toMilliseconds = require('../toMilliseconds');
+const toMilliseconds = require('../lib/toMilliseconds');
 
 describe('toMilliseconds()', () => {
   it('Should return correct number for single value', () => {
@@ -73,13 +73,13 @@ describe('toMilliseconds()', () => {
 
   it('Should throw an error if unsupported value in input', () => {
     const input = '1y foobar 2h';
-    const expected = 'Unexpected value: foobar is not a supported value';
+    const expected = 'Unexpected value pattern: "foobar"';
     expect(() => toMilliseconds(input)).to.throw(expected);
   });
 
   it('Should throw an error if unsupported time identifier', () => {
     const input = '1y 1f 2h';
-    const expected = 'Unexpected value: f is not a supported time identifier';
+    const expected = 'Unexpected value pattern: "1f"';
     expect(() => toMilliseconds(input)).to.throw(expected);
   });
 });
