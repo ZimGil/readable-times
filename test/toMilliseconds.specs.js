@@ -31,6 +31,26 @@ describe('toMilliseconds()', () => {
     expect(actual).to.be.equal(expected);
   });
 
+  it('Should return correct number when string separator indicated', () => {
+    const sep = ','
+    const input = '1y,1y,1y,2w,2w,2w';
+    const expected = 3 * (1000 * 60 * 60 * 24 * 365) + 6 * (1000 * 60 * 60 * 24 * 7);
+    expect(() => toMilliseconds(input, { sep })).to.not.throw();
+    const actual = toMilliseconds(input, { sep });
+    expect(actual).to.be.a('number');
+    expect(actual).to.be.equal(expected);
+  });
+
+  it('Should return correct number when regex separator indicated', () => {
+    const sep = /(?:foobar|barfoo)/
+    const input = '1yfoobar1ybarfoo1ybarfoo2wbarfoo2wfoobar2w';
+    const expected = 3 * (1000 * 60 * 60 * 24 * 365) + 6 * (1000 * 60 * 60 * 24 * 7);
+    expect(() => toMilliseconds(input, { sep })).to.not.throw();
+    const actual = toMilliseconds(input, { sep });
+    expect(actual).to.be.a('number');
+    expect(actual).to.be.equal(expected);
+  });
+
   it('Should return correct number array of values', () => {
     const input = ['1y', '1y', '1y', '2w', '2w', '2w'];
     const expected = 3 * (1000 * 60 * 60 * 24 * 365) + 6 * (1000 * 60 * 60 * 24 * 7);

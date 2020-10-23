@@ -15,6 +15,12 @@ toMilliseconds('1d');
 toMilliseconds('1y 2mo 3w 4d 5h 6m 7s 8ms');
 // => 38898367008
 
+toMilliseconds('1y|2mo|3w|4d|5h|6m|7s|8ms', {sep: '|'});
+// => 38898367008
+
+toMilliseconds('1yfoobar2mofoobar3wbarfoo4dfoobar5hfoobar6mbarfoo7sfoobar8ms', {sep: /(?:foobar|barfoo)/});
+// => 38898367008
+
 toMilliseconds(['1y', '2mo', '3w', '4d', '5h', '6m', '7s', '8ms']);
 // => 38898367008
 
