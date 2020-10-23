@@ -31,8 +31,26 @@ describe('toMilliseconds()', () => {
     expect(actual).to.be.equal(expected);
   });
 
+  it('Should return correct number array of values', () => {
+    const input = ['1y', '1y', '1y', '2w', '2w', '2w'];
+    const expected = 3 * (1000 * 60 * 60 * 24 * 365) + 6 * (1000 * 60 * 60 * 24 * 7);
+    expect(() => toMilliseconds(input)).to.not.throw();
+    const actual = toMilliseconds(input);
+    expect(actual).to.be.a('number');
+    expect(actual).to.be.equal(expected);
+  });
+
   it('Should return correct number for empty string', () => {
     const input = '';
+    const expected = 0;
+    expect(() => toMilliseconds(input)).to.not.throw();
+    const actual = toMilliseconds(input);
+    expect(actual).to.be.a('number');
+    expect(actual).to.be.equal(expected);
+  });
+
+  it('Should return correct number for empty array', () => {
+    const input = [];
     const expected = 0;
     expect(() => toMilliseconds(input)).to.not.throw();
     const actual = toMilliseconds(input);

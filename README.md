@@ -15,6 +15,9 @@ toMilliseconds('1d');
 toMilliseconds('1y 2mo 3w 4d 5h 6m 7s 8ms');
 // => 38898367008
 
+toMilliseconds(['1y', '2mo', '3w', '4d', '5h', '6m', '7s', '8ms']);
+// => 38898367008
+
 toMilliseconds(123);
 // => 123
 ```
