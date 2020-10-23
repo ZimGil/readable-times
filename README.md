@@ -37,4 +37,10 @@ toReadable(1);
 
 toReadable(38898367008);
 // => '1y 2mo 3w 4d 5h 6m 7s 8ms'
+
+toReadable(38898367008, { sep: ';' });
+// => '1y;2mo;3w;4d;5h;6m;7s;8ms'
+
+toReadable(38898367008, { asArray: true });
+// => ['1y','2mo','3w','4d','5h','6m','7s','8ms']
 ```

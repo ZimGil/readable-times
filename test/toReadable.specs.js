@@ -47,6 +47,26 @@ describe('toReadable()', () => {
     expect(actual).to.be.equal(expected);
   });
 
+  it('Should be able to return result using option separator', () => {
+    const sep = ';'
+    const input = 38898367008;
+    const expected = '1y;2mo;3w;4d;5h;6m;7s;8ms';
+    expect(() => toReadable(input, { sep })).to.not.throw();
+    const actual = toReadable(input, { sep });
+    expect(actual).to.be.a('string');
+    expect(actual).to.be.equal(expected);
+  });
+
+  it('Should be able to return result as array', () => {
+    const asArray = true
+    const input = 38898367008;
+    const expected = ['1y','2mo','3w','4d','5h','6m','7s','8ms'];
+    expect(() => toReadable(input, { asArray })).to.not.throw();
+    const actual = toReadable(input, { asArray });
+    expect(actual).to.be.an('array');
+    expect(actual).to.be.deep.equal(expected);
+  });
+
   it('Should throw an error when input is NaN', () => {
     const input = { foo: 'bar' };
     const expected = 'Unexpected value: [object Object] is not convertable to number';
