@@ -4,7 +4,8 @@
   "description": "Convert readable time strings to milliseconds and vice versa",
   "main": "lib/index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "lint": "eslint ."
   },
   "repository": {
     "type": "git",

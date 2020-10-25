@@ -48,7 +48,7 @@ describe('toReadable()', () => {
   });
 
   it('Should be able to return result using option separator', () => {
-    const sep = ';'
+    const sep = ';';
     const input = 38898367008;
     const expected = '1y;2mo;3w;4d;5h;6m;7s;8ms';
     expect(() => toReadable(input, { sep })).to.not.throw();
@@ -58,7 +58,7 @@ describe('toReadable()', () => {
   });
 
   it('Should be able to return result as array', () => {
-    const asArray = true
+    const asArray = true;
     const input = 38898367008;
     const expected = ['1y','2mo','3w','4d','5h','6m','7s','8ms'];
     expect(() => toReadable(input, { asArray })).to.not.throw();
