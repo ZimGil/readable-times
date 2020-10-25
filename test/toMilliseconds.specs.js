@@ -32,7 +32,7 @@ describe('toMilliseconds()', () => {
   });
 
   it('Should return correct number when string separator indicated', () => {
-    const sep = ','
+    const sep = ',';
     const input = '1y,1y,1y,2w,2w,2w';
     const expected = 3 * (1000 * 60 * 60 * 24 * 365) + 6 * (1000 * 60 * 60 * 24 * 7);
     expect(() => toMilliseconds(input, { sep })).to.not.throw();
@@ -42,7 +42,7 @@ describe('toMilliseconds()', () => {
   });
 
   it('Should return correct number when regex separator indicated', () => {
-    const sep = /(?:foobar|barfoo)/
+    const sep = /(?:foobar|barfoo)/;
     const input = '1yfoobar1ybarfoo1ybarfoo2wbarfoo2wfoobar2w';
     const expected = 3 * (1000 * 60 * 60 * 24 * 365) + 6 * (1000 * 60 * 60 * 24 * 7);
     expect(() => toMilliseconds(input, { sep })).to.not.throw();
@@ -62,36 +62,36 @@ describe('toMilliseconds()', () => {
 
   it('Should return correct number when input use any of possible identifiers', () => {
     const input = [
-      "1milliseconds",
-      "1millisec",
-      "1millisec",
-      "1ms",
-      "1seconds",
-      "1second",
-      "1secs",
-      "1sec",
-      "1s",
-      "1minutes",
-      "1minute",
-      "1mins",
-      "1min",
-      "1m",
-      "1hours",
-      "1hour",
-      "1h",
-      "1days",
-      "1day",
-      "1d",
-      "1weeks",
-      "1week",
-      "1w",
-      "1months",
-      "1month",
-      "1mo",
-      "1years",
-      "1year",
-      "1y"
-    ].join(' ')
+      '1milliseconds',
+      '1millisec',
+      '1millisec',
+      '1ms',
+      '1seconds',
+      '1second',
+      '1secs',
+      '1sec',
+      '1s',
+      '1minutes',
+      '1minute',
+      '1mins',
+      '1min',
+      '1m',
+      '1hours',
+      '1hour',
+      '1h',
+      '1days',
+      '1day',
+      '1d',
+      '1weeks',
+      '1week',
+      '1w',
+      '1months',
+      '1month',
+      '1mo',
+      '1years',
+      '1year',
+      '1y'
+    ].join(' ');
 
     const expected =
       1 + // "1milliseconds",
@@ -124,10 +124,10 @@ describe('toMilliseconds()', () => {
       1 * 1000 * 60 * 60 * 24 * 365 + // "1year",
       1 * 1000 * 60 * 60 * 24 * 365;   // "1y"
 
-      expect(() => toMilliseconds(input)).to.not.throw();
-      const actual = toMilliseconds(input);
-      expect(actual).to.be.a('number');
-      expect(actual).to.be.equal(expected);
+    expect(() => toMilliseconds(input)).to.not.throw();
+    const actual = toMilliseconds(input);
+    expect(actual).to.be.a('number');
+    expect(actual).to.be.equal(expected);
   });
 
   it('Should return correct number for empty string', () => {
@@ -169,7 +169,7 @@ describe('toMilliseconds()', () => {
   });
 
   it('Should be case insensitive', () => {
-    const input = '1yEaR'
+    const input = '1yEaR';
     expected = 1000 * 60 * 60 * 24 * 365;
 
     expect(() => toMilliseconds(input)).to.not.throw();
