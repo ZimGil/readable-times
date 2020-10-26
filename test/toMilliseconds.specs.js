@@ -63,7 +63,8 @@ describe('toMilliseconds()', () => {
   it('Should return correct number when input use any of possible identifiers', () => {
     const input = [
       '1milliseconds',
-      '1millisec',
+      '1millisecond',
+      '1millisecs',
       '1millisec',
       '1ms',
       '1seconds',
@@ -95,7 +96,8 @@ describe('toMilliseconds()', () => {
 
     const expected =
       1 + // "1milliseconds",
-      1 + // "1millisec",
+      1 + // "1millisecond",
+      1 + // "1millisecs",
       1 + // "1millisec",
       1 + // "1ms",
       1 * 1000 + // "1seconds",

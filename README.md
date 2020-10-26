@@ -47,7 +47,7 @@ toMilliseconds(123);
 
 Available identifiers:
 ```
-MILLISECOND: ['milliseconds', 'millisec', 'millisec', 'ms']
+MILLISECOND: ['milliseconds', 'millisecond', 'millisecs', 'millisec', 'millisec', 'ms']
 SECOND: ['seconds','second','secs','sec','s']
 MINUTE: ['minutes','minute','mins','min','m']
 HOUR: ['hours','hour','h']
