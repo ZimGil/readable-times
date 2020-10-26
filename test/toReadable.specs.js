@@ -60,11 +60,30 @@ describe('toReadable()', () => {
   it('Should be able to return result as array', () => {
     const asArray = true;
     const input = 38898367008;
-    const expected = ['1y','2mo','3w','4d','5h','6m','7s','8ms'];
+    const expected = ['1y', '2mo', '3w', '4d', '5h', '6m', '7s', '8ms'];
     expect(() => toReadable(input, { asArray })).to.not.throw();
     const actual = toReadable(input, { asArray });
     expect(actual).to.be.an('array');
     expect(actual).to.be.deep.equal(expected);
+  });
+
+  it('Should be able to return result using option identifiers', () => {
+    const input = 38898367008;
+    const identifiers = {
+      year: 'shana',
+      month: 'hodesh',
+      week: 'shavua',
+      day: 'yom',
+      hour: 'sha\'a',
+      minute: 'daka',
+      second: 'shniya',
+      millisecond: 'milishniya'
+    };
+    const expected = '1shana 2hodesh 3shavua 4yom 5sha\'a 6daka 7shniya 8milishniya';
+    expect(() => toReadable(input, { identifiers })).to.not.throw();
+    const actual = toReadable(input, { identifiers });
+    expect(actual).to.be.a('string');
+    expect(actual).to.be.equal(expected);
   });
 
   it('Should throw an error when input is NaN', () => {
