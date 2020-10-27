@@ -20,6 +20,19 @@ toReadable(38898367008, { sep: ';' });
 
 toReadable(38898367008, { asArray: true });
 // => ['1y','2mo','3w','4d','5h','6m','7s','8ms']
+
+const identifiers = {
+  year: 'shana',
+  month: 'hodesh',
+  week: 'shavua',
+  day: 'yom',
+  hour: 'sha\'a',
+  minute: 'daka',
+  second: 'shniya',
+  millisecond: 'milishniya'
+};
+toReadable(38898367008, { identifiers });
+// => '1shana 2hodesh 3shavua 4yom 5sha'a 6daka 7shniya 8milishniya'
 ```
 
 ### toMilliseconds()
@@ -43,11 +56,24 @@ toMilliseconds(['1y', '2mo', '3w', '4d', '5h', '6m', '7s', '8ms']);
 
 toMilliseconds(123);
 // => 123
+
+const identifiers = {
+  year: 'shana',
+  month: 'hodesh',
+  week: 'shavua',
+  day: 'yom',
+  hour: 'sha\'a',
+  minute: 'daka',
+  second: 'shniya',
+  millisecond: 'milishniya'
+};
+toReadable('1shana 2hodesh 3shavua 4yom 5sha\'a 6daka 7shniya 8milishniya', { identifiers });
+// => 38898367008
 ```
 
 Available identifiers:
 ```
-MILLISECOND: ['milliseconds', 'millisec', 'millisec', 'ms']
+MILLISECOND: ['milliseconds', 'millisecond', 'millisecs', 'millisec', 'ms']
 SECOND: ['seconds','second','secs','sec','s']
 MINUTE: ['minutes','minute','mins','min','m']
 HOUR: ['hours','hour','h']

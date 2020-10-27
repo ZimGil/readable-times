@@ -60,10 +60,30 @@ describe('toMilliseconds()', () => {
     expect(actual).to.be.equal(expected);
   });
 
+  it('Should return correct number array of values', () => {
+    const identifiers = {
+      year: 'shana',
+      month: 'hodesh',
+      week: 'shavua',
+      day: 'yom',
+      hour: 'sha\'a',
+      minute: 'daka',
+      second: 'shniya',
+      millisecond: 'milishniya'
+    };
+    const input = '1shana 2hodesh 3shavua 4yom 5sha\'a 6daka 7shniya 8milishniya';
+    const expected = 38898367008;
+    expect(() => toMilliseconds(input, { identifiers })).to.not.throw();
+    const actual = toMilliseconds(input, { identifiers });
+    expect(actual).to.be.a('number');
+    expect(actual).to.be.equal(expected);
+  });
+
   it('Should return correct number when input use any of possible identifiers', () => {
     const input = [
       '1milliseconds',
-      '1millisec',
+      '1millisecond',
+      '1millisecs',
       '1millisec',
       '1ms',
       '1seconds',
@@ -95,7 +115,8 @@ describe('toMilliseconds()', () => {
 
     const expected =
       1 + // "1milliseconds",
-      1 + // "1millisec",
+      1 + // "1millisecond",
+      1 + // "1millisecs",
       1 + // "1millisec",
       1 + // "1ms",
       1 * 1000 + // "1seconds",
