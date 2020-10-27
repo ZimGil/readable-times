@@ -32,7 +32,7 @@ const identifiers = {
   millisecond: 'milishniya'
 };
 toReadable(38898367008, { identifiers });
-// => '1shana 2hodesh 3shavua 4yom 5sha\'a 6daka 7shniya 8milishniya'
+// => '1shana 2hodesh 3shavua 4yom 5sha'a 6daka 7shniya 8milishniya'
 ```
 
 ### toMilliseconds()
@@ -73,7 +73,7 @@ toReadable('1shana 2hodesh 3shavua 4yom 5sha\'a 6daka 7shniya 8milishniya', { id
 
 Available identifiers:
 ```
-MILLISECOND: ['milliseconds', 'millisecond', 'millisecs', 'millisec', 'millisec', 'ms']
+MILLISECOND: ['milliseconds', 'millisecond', 'millisecs', 'millisec', 'ms']
 SECOND: ['seconds','second','secs','sec','s']
 MINUTE: ['minutes','minute','mins','min','m']
 HOUR: ['hours','hour','h']
